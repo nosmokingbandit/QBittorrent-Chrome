@@ -13,3 +13,5 @@ Items with a * are not critical and can be considered experiments.
 [ ] Send torrent/magnet links with context menu
 
 [ ] Add link to webui in dropdown menu
+
+[ ] New icon -- original is copied from google search
