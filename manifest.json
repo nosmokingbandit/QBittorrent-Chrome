@@ -1,0 +1,22 @@
+{
+   "background": {
+      "page": "html/background.html"
+   },
+   "browser_action": {
+      "default_icon": "img/icon-16.png",
+      "default_popup": "html/interface.html",
+      "default_title": "QBittorrent Chrome"
+   },
+   "description": "Add and manage torrents through Chrome.",
+   "icons": {
+      "128": "img/icon-128.png",
+      "16": "img/icon-16.png",
+      "48": "img/icon-48.png"
+   },
+   "manifest_version": 2,
+   "name": "QBittorrent Chrome",
+   "options_page": "html/options.html",
+   "permissions": ["webRequest", "contextMenus", "notifications", "http://*/" ],
+   "version": "1.0.0",
+   "web_accessible_resources": ["img/icon-128.png"]
+}
