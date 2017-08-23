@@ -1,3 +1,165 @@
-body {
-    width: 40em;
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 512px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Trebuchet", sans-serif;
+    color: #212121;
+}
+
+div{
+    margin: 0;
+    padding: 0;
+}
+
+div#error{
+    background-color: #FF9800;
+    height: 100%;
+    padding: 16px;
+}
+
+div#error a{
+    color: #212121;
+}
+
+h3{
+    margin-top: 8px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul#toolbar{
+    height: 48px;
+    background-color: #212121;
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+}
+
+ul#toolbar > li{
+    margin: 0 16px;
+    text-align: center;
+    font-weight: normal;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+ul#toolbar > li:hover{
+    color: #2196F3;
+}
+
+
+ul#toolbar > li > a{
+    margin: 0 auto;
+    display: block;
+}
+
+div.torrent{
+    padding: 8px 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+div.progress{
+    height: 8px;
+    margin: 8px 0;
+    border: 1px solid #E0E0E0;
+    background: #ffffff;
+}
+
+div.progress > .bar{
+    height: 8px;
+    background: #2196F3;
+}
+
+div.progress > .bar.error{
+    background: #F44336;
+}
+
+div.progress > .bar.paused{
+    background: #E0E0E0;
+}
+
+span.size,
+span.speeds,
+span.controls{
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+span.speeds,
+span.controls{
+    float: right;
+    margin-left: 32px;
+}
+
+
+div#footer{
+    background-color: #212121;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #ffffff;
+    padding: 0 16px;
+    text-align: right;
+}
+
+/* Sprite-based icons */
+
+a.button-16{
+    background-image: url("../img/buttons-16.png");
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    overflow: hidden;
+    vertical-align: text-bottom;
+}
+
+a.button-16.active{
+    background-position: 0 0;
+}
+
+a.button-16.paused{
+    background-position: 0 -16px;
+}
+
+a.button-16.remove{
+    background-position: 0 -32px;
+}
+
+a.button-16.upload{
+    background-position: 16px 0;
+}
+
+a.button-16.download{
+    background-position: 16px -16px;
+}
+
+a.button-32{
+    background-image: url("../img/buttons-32.png");
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    overflow: hidden;
+    vertical-align: text-bottom;
+}
+
+a.button-32.pause-all{
+    background-position: 0 0;
+}
+
+a.button-32.resume-all{
+    background-position: 0 -32px;
 }

@@ -8,27 +8,31 @@ $(document).ready(function() {
 });
 
 function load_config(){
-    /* Loads localStorage config into html form
+    /* Loads storage.local config into html form
     */
-    $inputs.each(function(i, element){
-        if(element.type === "checkbox"){
-            element.checked = localStorage[element.id];
-        } else {
-            element.value = localStorage[element.id] || "";
-        }
-    });
+    chrome.storage.local.get(null, function(settings){
+        $inputs.each(function(i, element){
+            if(element.type === "checkbox"){
+                element.checked = settings[element.id];
+            } else {
+                element.value = settings[element.id] || "";
+            }
+        });
+    })
 }
 
 function save_settings(){
-    /* Saves user's settings to localStorage
+    /* Saves user's settings to storage.local
     */
 
+    var settings = {};
     $inputs.each(function(i, element){
         if(element.type == "checkbox"){
-            localStorage.setItem(element.id, element.checked || false)
+            settings[element.id] = element.checked || false;
         } else {
-            localStorage.setItem(element.id, element.value)
+            settings[element.id] = element.value;
         }
     });
 
+    chrome.storage.local.set(settings);
 }
