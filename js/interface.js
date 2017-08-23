@@ -29,7 +29,7 @@ function footer(speeds){
 
 function update_interface(){
     chrome.storage.local.get(["torrent_html", "speed_totals", "logged_in", "address"], function(config){
-        if(config.logged_in === "false"){
+        if(!config.logged_in){
             var html = `
             <div id="error">
                 <h3>Unable to connect to QBittorrent</h3>
