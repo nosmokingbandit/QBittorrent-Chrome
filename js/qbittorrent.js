@@ -147,12 +147,14 @@ function render_torrent(torrent){
                 ${(size * torrent.progress).toFixed(1) + " / " + size + suffix}
             </span>
             <span class="controls">
-                <a href="#" class="button-16 ${state == 'paused' ? 'paused' : 'active'}" data-action="toggle_status"></a>
-                <a href="#" class="button-16 remove" data-action="remove"></a>
+                <i class="typcn ${state == 'paused' ? 'typcn-media-play' : 'typcn-media-pause'} action" data-action="toggle_status"></i>
+                <i class="typcn typcn-times action" data-action="remove"></i>
             </span>
             <span class="speeds">
-                <a class="button-16 upload"></a> ${file_size(torrent.upspeed).join("") + "/s"}
-                <a class="button-16 download"></a> ${file_size(torrent.dlspeed).join("") + "/s"}
+                <i class="typcn typcn-arrow-up"></i>
+                ${file_size(torrent.upspeed).join("") + "/s"}
+                <i class="typcn typcn-arrow-down"></i>
+                ${file_size(torrent.dlspeed).join("") + "/s"}
             </span>
         </div>
     </div>

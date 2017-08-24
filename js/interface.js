@@ -8,11 +8,14 @@ $(document).ready(function(){
 var toolbar = `
 <ul id="toolbar">
     <li>
-        <a class="button-32 pause-all"></a>
+        <img src="../img/icon-32.png"/>
+    </li>
+    <li class="button">
+        <i class="typcn typcn-media-pause" data-action="pause_all"></i>
         Pause All
     </li>
-    <li>
-        <a class="button-32 resume-all"></a>
+    <li class="button">
+        <i class="typcn typcn-media-play" data-action="pause_all"></i>
         Resume All
     </li>
 </ul>`;
