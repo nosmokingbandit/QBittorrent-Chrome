@@ -72,10 +72,22 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
     })
 });
 
-function add_torrent(){
+function add_torrent(event){
     /* Sends torrent to QBit server
-    TODO: this
     */
+
+    // chrome.windows.create({
+    //     'url': '../html/add_torrent_popup.html',
+    //     'type': 'popup',
+    //     'width': 512,
+    //     'height': 128,
+    //     'left': screen.width/2 - 512/2,
+    //     'top': screen.height/2 - 128/2
+    // })
+
+    api_command("/command/download", {"urls": event.linkUrl});
+
+
 }
 
 
