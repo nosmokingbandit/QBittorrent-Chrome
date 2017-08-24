@@ -10,8 +10,12 @@ Items with a * are not critical and can be considered experiments.
 
 [X] Show list of torrents in dropdown UI
 
-[ ] Send torrent/magnet links with context menu
+[X] Send torrent/magnet links with context menu
 
 [ ] Add link to webui in dropdown menu
 
 [ ] New icon -- original is copied from google search
+
+[ ] Get ajax calls working with latest QBit versions
+
+[ ] Apply category/directory when downloding via context menu
