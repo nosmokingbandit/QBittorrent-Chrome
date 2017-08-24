@@ -22,11 +22,11 @@ chrome.storage.local.set({"logged_in": false,
 chrome.contextMenus.create({
     "title": "Download with QBittorrent",
     "contexts": ["link"],
-    "onclick": add_torrent,
+    "onclick": add_torrent
 });
 
 /* Show badge on icon */
-chrome.browserAction.setBadgeBackgroundColor({"color": "#158cba"})
+chrome.browserAction.setBadgeBackgroundColor({"color": "#158cba"});
 
 /* Read user config and set defaults */
 var defaults = {"username": "username",
@@ -35,12 +35,12 @@ var defaults = {"username": "username",
                 "display_notifications": false,
                 "notification_duration": 10,
                 "refresh_rate": 5
-                }
+                };
 
 chrome.storage.local.get(null, function(c_storage){
     for(var key in defaults){
         if(c_storage[key] === undefined){
-            c_storage[key] = defaults[key]
+            c_storage[key] = defaults[key];
         }
     }
     storage = c_storage;
@@ -57,7 +57,7 @@ Update var storage
 chrome.storage.onChanged.addListener(function(changes, namespace){
 
     if(Object.keys(changes).some(c => ["address", "username", "password"].indexOf(c) > -1)){
-        chrome.storage.local.set({"logged_in": false})
+        chrome.storage.local.set({"logged_in": false});
     }
 
     if(changes.refresh_rate){

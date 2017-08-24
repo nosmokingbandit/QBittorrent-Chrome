@@ -39,7 +39,7 @@ function update_interface(){
                         Reveiew your settings.
                     </a>
                 </p>
-            </div>`
+            </div>`;
             body.html(html);
         } else {
             html = toolbar;
@@ -57,7 +57,7 @@ window.addEventListener("storage", function(event){
     if(event.torrent_html){
         update_interface();
     }
-}, false)
+}, false);
 
 document.addEventListener("click", function(e){
     if(!e.target){
@@ -73,14 +73,14 @@ function toggle_status(elem){
     /* Changes torrent status between paused/active
     elem (obj): button element
     */
-    var torrent = elem.closest('.torrent')
+    var torrent = elem.closest('.torrent');
 
     var hash = torrent.dataset.hash;
 
     if(torrent.dataset.paused == "true"){
-        api_command("/command/resume", {"hash": hash})
+        api_command("/command/resume", {"hash": hash});
     } else {
-        api_command("/command/pause", {"hash": hash})
+        api_command("/command/pause", {"hash": hash});
     }
 }
 

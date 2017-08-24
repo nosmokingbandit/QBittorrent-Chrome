@@ -40,30 +40,6 @@ function get_torrent_info(){
     /* Gets torrents status from Qbit server
     Response from server is a list of objects.
     [{
-        "size": 1609039872,
-        "num_leechs": 2,
-        "upspeed": 0,
-        "eta": 432,
-        "category": "",
-        "added_on": 1503348878,
-        "completion_on": 4294967295,
-        "ratio": 0,
-        "dlspeed": 3294914,
-        "num_complete": 53,
-        "seq_dl": false,
-        "name": "ubuntu-17.04-desktop-amd64.iso",
-        "save_path": "C:\\Users\\Name\\Downloads\\",
-        "num_seeds": 42,
-        "f_l_piece_prio": false,
-        "progress": 0.11828150600194931,
-        "super_seeding": false,
-        "hash": "59066769b9ad42da2e508611c33d7c4480b3857b",
-        "num_incomplete": 4,
-        "state": "downloading",
-        "force_start": false,
-        "priority": 2
-    },
-    {
         "size": 1513308160,
         "num_leechs": 0,
         "upspeed": 0,
@@ -101,10 +77,7 @@ function get_torrent_info(){
             chrome.storage.local.set({"logged_in": false});
             parse_torrents([])
         })
-
     })
-
-
 };
 
 function parse_torrents(torrents){
@@ -160,7 +133,7 @@ function render_torrent(torrent){
     } else if(torrent.state == "error"){
         state = "error"
     } else {
-        state = "active"
+        state = "active";
     };
 
     var row = `
@@ -184,7 +157,6 @@ function render_torrent(torrent){
         </div>
     </div>
     `
-
     return row
 };
 
