@@ -128,23 +128,28 @@ function render_torrent(torrent){
 
     var [size, suffix] = file_size(torrent.size);
     var state;
-    if(['pausedUP', 'pausedDL'].indexOf(torrent.state) > -1){
-        state = "paused"
-    } else if(torrent.state == "error"){
-        state = "error"
+    if(["pausedUP", "pausedDL", "queuedUP"].indexOf(torrent.state) > -1){
+        state = "paused";
+    } else if(["error", "missingFiles"].indexOf(torrent.state) > -1){
+        state = "error";
+    } else if(["stalledUP", "stalledDL"]){
+        state = "stalled";
     } else {
         state = "active";
     };
+
+    var complete = parseInt(torrent.progress * 100) + "%";
 
     var row = `
     <div class="torrent" data-hash="${torrent.hash}" data-paused="${state == 'paused' ? 'true' : 'false'}">
         ${torrent.name}
         <div class="progress">
-            <div class="bar ${state}" style="width: ${parseInt(torrent.progress * 100)}%;"></div>
+            <div class="bar ${state}" style="width: ${state == "error" ? "100%" : complete}"></div>
         </div>
         <div class="status">
             <span class="size">
-                ${(size * torrent.progress).toFixed(1) + " / " + size + suffix}
+                ${complete + "  " + (size * torrent.progress).toFixed(1) + " / " + size + suffix}
+
             </span>
             <span class="controls">
                 <i class="typcn ${state == 'paused' ? 'typcn-media-play' : 'typcn-media-pause'} action" data-action="toggle_status"></i>
