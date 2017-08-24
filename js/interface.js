@@ -20,16 +20,6 @@ var toolbar = `
     </li>
 </ul>`;
 
-function footer(speeds){
-    return `
-    <div id="footer">
-        ${speeds[0]}
-        ${speeds[1]}
-    </div>
-    `
-
-}
-
 function update_interface(){
     chrome.storage.local.get(["torrent_html", "speed_totals", "logged_in", "address"], function(config){
         if(!config.logged_in){
@@ -49,7 +39,7 @@ function update_interface(){
             html += `<div id="torrents">`;
             html += config.torrent_html;
             html += `</div>`;
-            html += footer(config.speed_totals);
+            html += `<div id="footer"> ${config.speed_totals[0]} ${config.speed_totals[1]}</div>`;
             body.html(html);
         }
     })
