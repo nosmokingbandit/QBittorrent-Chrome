@@ -46,8 +46,8 @@ function update_interface(){
 };
 
 /* Update interface when storage.local.torrent_html updates */
-window.addEventListener("storage", function(event){
-    if(event.torrent_html){
+chrome.storage.onChanged.addListener(function(changes, namespace){
+    if(changes.torrent_html){
         update_interface();
     }
 }, false);
