@@ -12,6 +12,26 @@ body{
     color: #212121;
 }
 
+i.typcn{
+    font-size: 1.5em;
+    line-height: 1.5em;
+    height: 1.25em;
+    width: 1.25em;
+    color: #212121;
+    vertical-align: text-bottom;
+    font-weight: normal;
+    display: inline-block;
+    text-align: center;
+}
+
+i.typcn.action{
+    cursor: pointer;
+}
+
+i.typcn.action:hover{
+    color: #2095F3;
+}
+
 div{
     margin: 0;
     padding: 0;
@@ -38,32 +58,44 @@ a{
 }
 
 ul#toolbar{
-    height: 48px;
-    background-color: #212121;
+    height: 32px;
     list-style: none;
     margin: 0;
-    padding: 8px;
+    padding: 8px 0;
+    box-shadow: 0 2px 4px #bdbdbd;
 }
 
 ul#toolbar > li{
-    margin: 0 16px;
+    margin: 0 8px;
+    float: left;
+}
+
+ul#toolbar li.button{
+    margin: 2px 8px;
     text-align: center;
     font-weight: normal;
     display: inline-block;
     color: #ffffff;
     font-size: 10px;
+    height: 28px;
+    background-color: #2196F3;
+    border-radius: 2px;
+    padding: 0 8px;
     cursor: pointer;
-    transition: .3s;
+    box-shadow: 0 1px 2px #424242;
 }
 
-ul#toolbar > li:hover{
-    color: #2196F3;
+ul#toolbar li.button:hover{
+    box-shadow: 0 2px 4px #616161;
 }
 
+ul#toolbar li.button:active{
+    box-shadow: none;
+}
 
-ul#toolbar > li > a{
-    margin: 0 auto;
-    display: block;
+div#torrents{
+    max-height: 1024px;
+    overflow-y: scroll;
 }
 
 div.torrent{
@@ -73,7 +105,7 @@ div.torrent{
 
 div.progress{
     height: 8px;
-    margin: 8px 0;
+    margin: 4px 0;
     border: 1px solid #E0E0E0;
     background: #ffffff;
 }
@@ -85,6 +117,12 @@ div.progress > .bar{
 
 div.progress > .bar.error{
     background: #F44336;
+    width: 100%;
+}
+
+div.progress > .bar.stalled{
+    background: #607D8B;
+    width: 100%;
 }
 
 div.progress > .bar.paused{
@@ -105,61 +143,37 @@ span.controls{
     margin-left: 32px;
 }
 
+span.speeds > i{
+    text-align: right;
+}
+
 
 div#footer{
-    background-color: #212121;
+    box-shadow: 0 -2px 4px #bdbdbd;
     height: 24px;
     line-height: 24px;
     font-size: 12px;
-    color: #ffffff;
     padding: 0 16px;
     text-align: right;
 }
 
-/* Sprite-based icons */
-
-a.button-16{
-    background-image: url("../img/buttons-16.png");
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    overflow: hidden;
-    vertical-align: text-bottom;
+div#footer > a{
+    float: left;
 }
 
-a.button-16.active{
-    background-position: 0 0;
+div#footer > a > i{
+    color: #ffffff;
 }
 
-a.button-16.paused{
-    background-position: 0 -16px;
+
+::-webkit-scrollbar {
+    width: 4px;
 }
 
-a.button-16.remove{
-    background-position: 0 -32px;
+::-webkit-scrollbar-thumb {
+    background-color: #212121;
 }
 
-a.button-16.upload{
-    background-position: 16px 0;
-}
-
-a.button-16.download{
-    background-position: 16px -16px;
-}
-
-a.button-32{
-    background-image: url("../img/buttons-32.png");
-    display: inline-block;
-    height: 32px;
-    width: 32px;
-    overflow: hidden;
-    vertical-align: text-bottom;
-}
-
-a.button-32.pause-all{
-    background-position: 0 0;
-}
-
-a.button-32.resume-all{
-    background-position: 0 -32px;
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
 }
