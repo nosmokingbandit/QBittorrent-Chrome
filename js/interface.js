@@ -59,6 +59,10 @@ document.addEventListener("click", function(e){
         remove_torrent(e.target);
     } else if(e.target.dataset.action == "toggle_status"){
         toggle_status(e.target);
+    } else if(e.target.dataset.action == "pause_all"){
+        pause_all(e.target);
+    } else if(e.target.dataset.action == "resume_all"){
+        resume_all(e.target);
     }
 });
 
@@ -84,4 +88,14 @@ function remove_torrent(elem){
 
     */
     var hash = elem.closest('.torrent').dataset.hash;
+
+    api_command("/command/deletePerm", {"hashes": hash});
+}
+
+function pause_all(elem){
+    api_command("/command/pauseAll");
+}
+
+function resume_all(elem){
+    api_command("/command/resumeAll");
 }
