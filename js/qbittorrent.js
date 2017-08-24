@@ -92,7 +92,7 @@ function get_torrent_info(){
     */
 
     chrome.storage.local.get("address", function(config){
-        $.get(config.address + "/query/torrents")
+        $.get(config.address + "/query/torrents?sort=priority")
         .done(function(response){
             parse_torrents(response);
         })
