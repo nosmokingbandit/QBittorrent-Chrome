@@ -23,8 +23,13 @@ function login(){
         .done(function(response){
             if(response == "Fails."){
                 apply_badge(["ERR"])
+                chrome.browserAction.setIcon({path: "../img/icon-16-disabled.png"});
+                chrome.browserAction.setBadgeBackgroundColor({"color": "#FF5722"});
             } else {
+                /* Only success condition */
                 chrome.storage.local.set({"logged_in": true});
+                chrome.browserAction.setIcon({path: "../img/icon-16.png"});
+                chrome.browserAction.setBadgeBackgroundColor({"color": "#43A047"});
                 get_torrent_info();
             }
         })
@@ -32,6 +37,8 @@ function login(){
             var err = data.status
             apply_badge(["ERR"])
             chrome.storage.local.set({"logged_in": false});
+            chrome.browserAction.setIcon({path: "../img/icon-16-disabled.png"});
+            chrome.browserAction.setBadgeBackgroundColor({"color": "#FF5722"});
         })
     })
 };
