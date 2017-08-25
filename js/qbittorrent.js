@@ -142,7 +142,7 @@ function render_torrent(torrent){
         state = "paused";
     } else if(["error", "missingFiles"].indexOf(torrent.state) > -1){
         state = "error";
-    } else if(["stalledUP", "stalledDL"]){
+    } else if(["stalledUP", "stalledDL"].indexOf(torrent.state) > -1){
         state = "stalled";
     } else {
         state = "active";
