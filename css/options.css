@@ -1,4 +1,6 @@
 body {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
     max-width: 768px;
     margin: 0 auto;
+    font-family: "Open Sans", "Trebuchet", sans-serif;
 }
