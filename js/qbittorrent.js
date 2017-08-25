@@ -142,7 +142,7 @@ function render_torrent(torrent){
 
     var row = `
     <div class="torrent" data-hash="${torrent.hash}" data-paused="${state == 'paused' ? 'true' : 'false'}">
-        ${torrent.name}
+        <b>${torrent.name}</b>
         <div class="progress">
             <div class="bar ${state}" style="width: ${state == "error" ? "100%" : complete}"></div>
         </div>
