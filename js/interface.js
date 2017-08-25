@@ -8,7 +8,7 @@ $(document).ready(function(){
 var toolbar = `
 <div id="toolbar">
     <div class="logo">
-        <img src="../img/icon-48.png"/>
+        <img src="../img/icon-32.png"/>
     </div>
     <div class="button green" data-action="resume_all">
         <i class="icon ion-play" data-action="resume_all"></i>
@@ -19,8 +19,6 @@ var toolbar = `
         Pause All
     </div>
 </div>`;
-
-
 
 function update_interface(){
     chrome.storage.local.get(["torrent_html", "stats", "logged_in", "address"], function(config){
