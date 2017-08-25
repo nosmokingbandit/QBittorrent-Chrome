@@ -39,7 +39,16 @@ function update_interface(){
             html += `<div id="torrents">`;
             html += config.torrent_html;
             html += `</div>`;
-            html += `<div id="footer"> ${config.speed_totals[0]} ${config.speed_totals[1]}</div>`;
+            html += `<div id="footer">
+                        ${config.stats.torrent_count} Torrents
+                        <span class="speed_totals">
+                            <i class="icon ion-arrow-up-b"></i>
+                            ${config.stats.upload_speed}/s
+                            <i class="icon ion-arrow-down-b"></i>
+                            ${config.stats.download_speed}/s
+                        </span>
+
+                     </div>`;
             body.html(html);
         }
     })

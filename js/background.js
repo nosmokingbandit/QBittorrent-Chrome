@@ -14,7 +14,7 @@ var update_loop;
 
 chrome.storage.local.set({"logged_in": false,
                           "torrent_html": "",
-                          "speed_totals": ["",""],
+                          "stats": [],
                           "badge_counts": [0, 0]
 })
 

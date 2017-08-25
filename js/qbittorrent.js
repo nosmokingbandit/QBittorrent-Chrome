@@ -84,7 +84,7 @@ function parse_torrents(torrents){
     /* Parses QBit response
     torrents (array): objects of torrent data
 
-    Sets storage.torrent_html, storage.speed_totals, and storage.badge_counts
+    Sets storage.torrent_html, storage.stats, and storage.badge_counts
     Applies badge
 
     Does not return
@@ -112,7 +112,10 @@ function parse_torrents(torrents){
         total_up += torrent.upspeed;
         total_down += torrent.dlspeed;
     }
-    chrome.storage.local.set({"speed_totals": [file_size(total_up).join(""), file_size(total_down).join("")],
+    chrome.storage.local.set({"stats": {"upload_speed": file_size(total_up).join(""),
+                                        "download_speed": file_size(total_down).join(""),
+                                        "torrent_count": torrents.length
+                                        },
                               "torrent_html": html,
                               "badge_counts": [downloading_count, seeding_count]
     });
