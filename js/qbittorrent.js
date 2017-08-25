@@ -155,13 +155,13 @@ function render_torrent(torrent){
 
             </span>
             <span class="controls">
-                <i class="typcn ${state == 'paused' ? 'typcn-media-play' : 'typcn-media-pause'} action" data-action="toggle_status"></i>
-                <i class="typcn typcn-times action" data-action="remove"></i>
+                <i class="icon ${state == 'paused' ? 'ion-play' : 'ion-pause'} action" data-action="toggle_status"></i>
+                <i class="icon ion-close action" data-action="remove"></i>
             </span>
             <span class="speeds">
-                <i class="typcn typcn-arrow-up"></i>
+                <i class="icon ion-arrow-up-b"></i>
                 ${file_size(torrent.upspeed).join("") + "/s"}
-                <i class="typcn typcn-arrow-down"></i>
+                <i class="icon ion-arrow-down-b"></i>
                 ${file_size(torrent.dlspeed).join("") + "/s"}
             </span>
         </div>
