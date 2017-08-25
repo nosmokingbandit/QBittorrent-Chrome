@@ -26,7 +26,7 @@ chrome.contextMenus.create({
 });
 
 /* Show badge on icon */
-chrome.browserAction.setBadgeBackgroundColor({"color": "#158cba"});
+chrome.browserAction.setBadgeBackgroundColor({"color": "#9E9E9E"});
 
 /* Read user config and set defaults */
 var defaults = {"username": "username",
