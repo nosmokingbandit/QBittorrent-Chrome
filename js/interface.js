@@ -23,9 +23,9 @@ var toolbar = `
 
 
 function update_interface(){
-    chrome.storage.local.get(["torrent_html", "speed_totals", "logged_in", "address"], function(config){
+    chrome.storage.local.get(["torrent_html", "stats", "logged_in", "address"], function(config){
         if(!config.logged_in){
-            var html = `
+            var error_html = `
             <div id="error">
                 <h3>Unable to connect to QBittorrent</h3>
                 <p>Unable to connect to QBittorrent server at ${config.address}.</p>
@@ -35,7 +35,7 @@ function update_interface(){
                     </a>
                 </p>
             </div>`;
-            body.html(html);
+            body.html(error_html);
         } else {
             html = toolbar;
             html += `<div id="torrents">`;
