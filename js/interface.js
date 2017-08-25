@@ -40,6 +40,9 @@ function update_interface(){
             html += config.torrent_html;
             html += `</div>`;
             html += `<div id="footer">
+                        <a href="${config.address}" target="_blank">
+                            <i class="icon ion-android-expand"></i>
+                        </a>
                         ${config.stats.torrent_count} Torrents
                         <span class="speed_totals">
                             <i class="icon ion-arrow-up-b"></i>
