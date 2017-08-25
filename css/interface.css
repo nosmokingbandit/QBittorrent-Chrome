@@ -39,8 +39,6 @@ a{
     font-weight: bold;
 }
 
-ul#toolbar{
-    height: 32px;
 i.icon{
     width: 1.5em;
     display: inline-block;
@@ -51,38 +49,48 @@ i.action{
     cursor: pointer;
 }
 
+div#toolbar{
+    height: 48px;
+    line-height: 48px;
+    text-align: left;
     list-style: none;
-    margin: 0;
-    padding: 8px 0;
+    margin: 0 0 4px 0;
+    padding: 0 0 0 8px;
     box-shadow: 0 2px 4px #bdbdbd;
+    background: #EEEEEE;
 }
 
-ul#toolbar > li{
-    margin: 0 8px;
-    float: left;
-}
-
-ul#toolbar li.button{
-    margin: 2px 8px;
-    text-align: center;
-    font-weight: normal;
+div#toolbar > div{
     display: inline-block;
-    color: #ffffff;
-    font-size: 10px;
-    height: 28px;
-    background-color: #2196F3;
-    border-radius: 2px;
-    padding: 0 8px;
-    cursor: pointer;
-    box-shadow: 0 1px 2px #424242;
 }
 
-ul#toolbar li.button:hover{
+div.button{
+    height: 32px;
+    line-height: 32px;
+    float: right;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 6px 8px;
+    padding: 0 8px;
+    box-shadow: 0 1px 2px #424242;
+    user-select: none;
+}
+
+div.button.green{
+    background: #4CAF50;
+}
+
+div.button.orange{
+    background: #FF9800;
+}
+
+div.button:hover{
     box-shadow: 0 2px 4px #616161;
 }
 
-ul#toolbar li.button:active{
-    box-shadow: none;
+div.button:active{
+    box-shadow: inset 0 2px 4px #424242;
 }
 
 div#torrents{
@@ -92,6 +100,9 @@ div#torrents{
 
 div.torrent{
     padding: 8px 16px;
+}
+
+div.torrent:not(:last-child){
     border-bottom: 1px solid #e0e0e0;
 }
 
@@ -144,19 +155,15 @@ div#footer{
     box-shadow: 0 -2px 4px #bdbdbd;
     height: 24px;
     line-height: 24px;
+    margin-top: 8px;
     font-size: 12px;
     padding: 0 16px;
-    text-align: right;
+    background: #EEEEEE;
 }
 
-div#footer > a{
-    float: left;
+div#footer > span.speed_totals{
+    float: right;
 }
-
-div#footer > a > i{
-    color: #ffffff;
-}
-
 
 ::-webkit-scrollbar {
     width: 4px;
