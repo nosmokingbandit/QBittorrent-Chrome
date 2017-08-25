@@ -1,6 +1,109 @@
-body {
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body{
     max-width: 768px;
     margin: 0 auto;
+    font-size: 16px;
     font-family: "Open Sans", "Trebuchet", sans-serif;
+    color: #212121;
+}
+
+form{
+    background: #EEEEEE;
+    border: 1px solid #BDBDBD;
+    padding: 1em;
+}
+
+form > h2{
+    margin: 32px 0 4px 0;
+}
+
+form > h2:first-child{
+    margin-top: 0;
+}
+
+form > table{
+    width: 100%;
+    padding: 32px 14px;
+    border-collapse: collapse;
+}
+
+form > table td{
+    padding: 8px 8px;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='password'],
+span.default_val{
+    border: none;
+    padding: 0 1em;
+    margin: 0;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    outline: none;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transition: 0.2s;
+    border-radius: 2px;
+    width: 100%;
+}
+
+table#categories th{
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+span.default_val{
+    display: inline-block;
+    user-select: none;
+    cursor: default;
+}
+
+input:hover{
+    border-bottom: 2px solid #BDBDBD;
+}
+
+input:focus{
+    border-bottom: 2px solid #2196F3;
+}
+
+i#add_category{
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+div#footer{
+    margin-top: 24px;
+}
+
+div#footer > a{
+    margin: 2px 8px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    color: #212121;
+    border-radius: 2px;
+    padding: 8px 8px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px #424242;
+}
+
+div#footer > a:hover{
+    box-shadow: 0 2px 4px #616161;
+}
+
+div#footer > a:active{
+    box-shadow: none;
+}
+
+div#footer > a#save_settings{
+    background-color: #4CAF50;
+}
+
+div#footer > a#cancel_save{
+    background-color: #FF9800;
 }
