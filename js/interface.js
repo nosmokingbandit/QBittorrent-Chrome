@@ -6,19 +6,21 @@ $(document).ready(function(){
 });
 
 var toolbar = `
-<ul id="toolbar">
-    <li>
-        <img src="../img/icon-32.png"/>
-    </li>
-    <li class="button">
-        <i class="typcn typcn-media-pause" data-action="pause_all"></i>
-        Pause All
-    </li>
-    <li class="button">
-        <i class="typcn typcn-media-play" data-action="pause_all"></i>
+<div id="toolbar">
+    <div class="logo">
+        <img src="../img/icon-48.png"/>
+    </div>
+    <div class="button green" data-action="resume_all">
+        <i class="icon ion-play" data-action="resume_all"></i>
         Resume All
-    </li>
-</ul>`;
+    </div>
+    <div class="button orange" data-action="pause_all">
+        <i class="icon ion-pause" data-action="pause_all"></i>
+        Pause All
+    </div>
+</div>`;
+
+
 
 function update_interface(){
     chrome.storage.local.get(["torrent_html", "speed_totals", "logged_in", "address"], function(config){
