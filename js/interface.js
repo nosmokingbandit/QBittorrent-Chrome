@@ -14,7 +14,7 @@ var toolbar = `
         <i class="icon ion-play" data-action="resume_all"></i>
         Resume All
     </div>
-    <div class="button orange" data-action="pause_all">
+    <div class="button yellow" data-action="pause_all">
         <i class="icon ion-pause" data-action="pause_all"></i>
         Pause All
     </div>

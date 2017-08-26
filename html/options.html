@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <h1 class="header">
+    <div id="header">
         <img src="../img/icon-64.png" alt="">
         QBittorrent Chrome
-    </h1>
+    </div>
 
     <form class="form-horizontal">
         <h2>QBittorrent Server</h2>
@@ -107,12 +107,14 @@
 
 
     <div id="footer">
-        <a class="" id="cancel_save">
-            Cancel
-        </a>
-        <a class="" id="save_settings">
+        <div class="button green" id="save_settings">
+            <i class="icon ion-compose"></i>
             Save
-        </a>
+        </div>
+        <div class="button yellow" id="cancel_save">
+            <i class="icon ion-close"></i>
+            Cancel
+        </div>
     </div>
 </body>
 

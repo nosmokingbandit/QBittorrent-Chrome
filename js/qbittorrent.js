@@ -148,23 +148,29 @@ function render_torrent(torrent){
         state = "active";
     };
 
-    var complete = parseInt(torrent.progress * 100) + "%";
+    var complete_percent = parseInt(torrent.progress * 100) + "%";
 
     var row = `
     <div class="torrent" data-hash="${torrent.hash}" data-paused="${state == 'paused' ? 'true' : 'false'}">
         <b>${torrent.name}</b>
-        <div class="progress">
-            <div class="bar ${state}" style="width: ${state == "error" ? "100%" : complete}"></div>
-        </div>
-        <div class="status">
-            <span class="size">
-                ${complete + "  " + (size * torrent.progress).toFixed(1) + " / " + size + suffix}
-
-            </span>
+        <div class="progress_container">
+            <div class="progress">
+                <div class="bar ${state}" style="width: ${state == "error" ? "100%" : complete_percent}"></div>
+            </div>
             <span class="controls">
                 <i class="icon ${state == 'paused' ? 'ion-play' : 'ion-pause'} action" data-action="toggle_status"></i>
                 <i class="icon ion-close action" data-action="remove"></i>
             </span>
+        </div>
+
+        <div class="stats">
+            <span class="size">
+                ${(size * torrent.progress).toFixed(1) + " / " + size + suffix + " (" + complete_percent + ")"}
+            </span>
+            <span class="eta">
+                ${format_eta(torrent.eta)}
+            </span>
+
             <span class="speeds">
                 <i class="icon ion-arrow-up-b"></i>
                 ${file_size(torrent.upspeed).join("") + "/s"}
@@ -209,4 +215,28 @@ function apply_badge(c){
     c (array): counts of downloading torrents [downloading, seeding]
     */
     chrome.browserAction.setBadgeText({"text": c.join(":")})
+}
+
+function format_eta(s){
+    /* Creates human-readable eta format
+    s (int): seconds to eta
+
+    Returns string
+    */
+
+    if(s == 8640000){
+        return "";
+    }
+
+    var days = ~~(s / 86400);
+    var hours = ~~((s % 86400) / 3600);
+    var minutes = ~~(((s % 86400) % 3600) / 60);
+    var seconds = ((s % 86400) % 3600) % 60;
+
+    h = [];
+    days > 0 ? h.push(days + " Days") : "";
+    hours > 0 ? h.push(hours + " Hours") : "";
+    minutes > 0 ? h.push(minutes + " Minutes") : "";
+    seconds > 0 ? h.push(seconds + " Seconds") : "";
+    return h.join(", ");
 }

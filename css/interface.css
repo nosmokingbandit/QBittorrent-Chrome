@@ -64,6 +64,10 @@ div#toolbar > div{
     display: inline-block;
 }
 
+div#toolbar > div.logo{
+    margin-top: 8px;
+}
+
 div.button{
     height: 32px;
     line-height: 32px;
@@ -75,14 +79,15 @@ div.button{
     padding: 0 8px;
     box-shadow: 0 1px 2px #424242;
     user-select: none;
+    font-weight: bold;
 }
 
 div.button.green{
     background: #4CAF50;
 }
 
-div.button.orange{
-    background: #FF9800;
+div.button.yellow{
+    background: #FFC107;
 }
 
 div.button:hover{
@@ -108,9 +113,10 @@ div.torrent:not(:last-child){
 
 div.progress{
     height: 8px;
-    margin: 4px 0;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #BDBDBD;
     background: #ffffff;
+    width: 90%;
+    display: inline-block;
 }
 
 div.progress > .bar{
@@ -129,27 +135,36 @@ div.progress > .bar.stalled{
 }
 
 div.progress > .bar.paused{
-    background: #E0E0E0;
+    background: #BDBDBD;
 }
 
-span.size,
-span.speeds,
 span.controls{
     height: 16px;
     line-height: 16px;
     font-size: 12px;
 }
 
-span.speeds,
-span.controls{
+div.stats{
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+span.size{
+    height: 16px;
+    line-height: 16px;
+}
+
+span.eta{
+    font-size: 11px;
+}
+
+span.speeds{
     float: right;
-    margin-left: 32px;
 }
 
 span.speeds > i{
     text-align: right;
 }
-
 
 div#footer{
     box-shadow: 0 -2px 4px #bdbdbd;
@@ -159,6 +174,10 @@ div#footer{
     font-size: 12px;
     padding: 0 16px;
     background: #EEEEEE;
+}
+
+div#footer > a{
+    color: #212121;
 }
 
 div#footer > span.speed_totals{

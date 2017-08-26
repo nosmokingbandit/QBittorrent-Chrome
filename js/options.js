@@ -36,10 +36,10 @@ function load_config(){
                     <input type="text" class="name" value="${category.name}"/>
                 </td>
                 <td>
-                    <input type="text" class="directory"/>
+                    <input type="text" class="directory" value="${category.directory}"/>
                 </td>
                 <td>
-                    <i class="icon ion-close" data-action="remove_category" value="${category.directory}"></i>
+                    <i class="icon ion-close" data-action="remove_category"></i>
                 </td>
             </tr>`
             $categories.append(row)
@@ -69,7 +69,6 @@ function remove_category(element){
     row.parentNode.removeChild(row);
 
 }
-
 
 function cancel_save(){
     window.location.reload();
