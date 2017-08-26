@@ -10,10 +10,10 @@ Todo items not listed in any particular order.
 
 [X] Send torrent/magnet links with context menu
 
-[ ] Add link to webui in dropdown menu
+[X] Add link to webui in dropdown menu
 
 [X] New icon -- original is copied from google search
 
-[ ] Get ajax calls working with latest QBit versions
+[X] Get ajax calls working with latest QBit versions
 
 [X] Apply category/directory when downloding via context menu
