@@ -75,21 +75,16 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
 function add_torrent(event){
     /* Sends torrent to QBit server
     */
-
-    // chrome.windows.create({
-    //     'url': '../html/add_torrent_popup.html',
-    //     'type': 'popup',
-    //     'width': 512,
-    //     'height': 128,
-    //     'left': screen.width/2 - 512/2,
-    //     'top': screen.height/2 - 128/2
-    // })
-
-    api_command("/command/download", {"urls": event.linkUrl});
-
-
+    chrome.windows.create({
+        'url': `../html/add_torrent_popup.html?t=${encodeURIComponent(event.linkUrl)}`,
+        'type': 'popup',
+        'focused': true,
+        'width': 512,
+        'height': 140,
+        'left': screen.width/2 - 512/2,
+        'top': screen.height/2 - 100/2
+    });
 }
-
 
 // Fire update immediately, skipping interval wait, and apply badge
 update();

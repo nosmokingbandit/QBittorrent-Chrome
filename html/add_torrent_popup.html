@@ -2,13 +2,32 @@
 
 <html>
 <head>
-    <title>QBittorrent Chrome</title>
+    <title>QBittorrent Chrome - Choose Category</title>
+    <link rel="stylesheet" type="text/css" href="../css/add_torrent.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/ionicons.min.css"/>
     <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../js/qbittorrent.js"></script>
+    <script type="text/javascript" src="../js/add_torrent.js"></script>
+
 </head>
 <body>
-    Hello World.
 
+    <select id="categories_select">
+        <option value="">
+            Default (Uncategorized)
+        </option>
+    </select>
+
+    <div id="footer">
+        <div class="button green" id="download">
+            <i class="icon ion-arrow-down-a"></i>
+            Download
+        </div>
+        <div class="button yellow" id="cancel">
+            <i class="icon ion-close"></i>
+            Cancel
+        </div>
+    </div>
 
 </body>
 
