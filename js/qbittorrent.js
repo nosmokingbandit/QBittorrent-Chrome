@@ -240,3 +240,22 @@ function format_eta(s){
     seconds > 0 ? h.push(seconds + " Seconds") : "";
     return h.join(", ");
 }
+
+/* Ugly hack to get requests working with newer QBittorrent versions
+Sets request headers 'Origin' and 'Referrer' to 'http://localhost:8080' before sending
+*/
+
+handler = function(details) {
+    var isRefererSet = false;
+    var headers = details.requestHeaders,
+        blockingResponse = {};
+
+    if(!headers.Referer){
+        headers.push({name: "Referer", value: "http://localhost:8080"});
+        headers.push({name: "Origin", value: "http://localhost:8080"});
+    }
+    blockingResponse.requestHeaders = headers;
+    return blockingResponse;
+};
+
+chrome.webRequest.onBeforeSendHeaders.addListener(handler, {urls: ["<all_urls>"]}, ['requestHeaders', 'blocking']);
