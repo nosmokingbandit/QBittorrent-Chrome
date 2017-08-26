@@ -1,10 +1,8 @@
 ## TODO
 
 Todo items not listed in any particular order.
-Items with a * are not critical and can be considered experiments.
 
-
-[ ] Remove dependence on JQuery *
+[ ] ~~Remove dependence on JQuery~~
 
 [ ] ~~Remove unused bootstrap styles to reduce filesize~~
 
@@ -14,8 +12,8 @@ Items with a * are not critical and can be considered experiments.
 
 [ ] Add link to webui in dropdown menu
 
-[ ] New icon -- original is copied from google search
+[X] New icon -- original is copied from google search
 
 [ ] Get ajax calls working with latest QBit versions
 
-[ ] Apply category/directory when downloding via context menu
+[X] Apply category/directory when downloding via context menu
