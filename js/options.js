@@ -85,6 +85,9 @@ function save_settings(){
         settings[input.id] = input.value;
     });
 
+    var notifs = document.getElementById("notifications").querySelectorAll("input[type='checkbox']")[0];
+    settings[notifs.id] = notifs.checked;
+
     var categories = [];
     document.getElementById("categories").querySelectorAll("tbody > tr").forEach(function(row){
         var cat = {};

@@ -74,9 +74,16 @@ function get_torrent_info(){
     Returns list of objects
     */
 
-    chrome.storage.local.get("address", function(config){
+    chrome.storage.local.get(["address", "display_notifications"], function(config){
+        console.log(config.display_notifications)
         $.get(config.address + "/query/torrents?sort=priority")
         .done(function(response){
+
+            if(config.display_notifications && background.last_response !== null){
+                background.notify(response, background.last_response);
+            }
+
+            background.last_response = response;
             parse_torrents(response);
         })
         .fail(function(response){

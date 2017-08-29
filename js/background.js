@@ -11,6 +11,7 @@ Starts an interval loop to get torrent status from qbit.
 */
 
 var update_loop;
+var last_response = null;   // Full last response from QBit Server
 
 chrome.storage.local.set({"logged_in": false,
                           "torrent_html": "",
@@ -87,4 +88,31 @@ function add_torrent(event){
 }
 
 // Fire update immediately, skipping interval wait, and apply badge
-update();
+update();function notify(torrents, prev){
+function notify(torrents, prev){
+    /* Shows desktop notifications
+    torrents (list): objects of torrents. Copy of response from server.
+    prev (list): objects of torrents. Copy of last response from server.
+    */
+
+    var previous = {};
+    for(var p in prev){
+        previous[prev[p].hash] = prev[p];
+    };
+
+    for(var idx in torrents){
+        torrent = torrents[idx];
+        if(previous[torrent.hash] == undefined){
+            chrome.notifications.create(torrent.hash, {type: "basic",
+                                               title: "Torrent Added",
+                                               message: torrent.name,
+                                               iconUrl: "../img/icon-128.png"}, function(){})
+
+        } else if(torrent.progress == 1.0 && previous[torrent.hash].progress < 1.0){
+            chrome.notifications.create(torrent.hash, {type: "basic",
+                                               title: "Download Complete",
+                                               message: torrent.name,
+                                               iconUrl: "../img/icon-128.png"}, function(){})
+        }
+    }
+}
