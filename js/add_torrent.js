@@ -42,7 +42,6 @@ function send(){
         });
     };
 
-    console.log(params);
     api_command("/command/download", params);
     window.close();
 }

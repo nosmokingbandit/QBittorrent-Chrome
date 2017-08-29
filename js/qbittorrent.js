@@ -1,3 +1,5 @@
+background = chrome.extension.getBackgroundPage();
+
 /* Contains all methods used to interact with QBit server and generate data for interface */
 
 function update(){
@@ -22,7 +24,7 @@ function login(){
         })
         .done(function(response){
             if(response == "Fails."){
-                apply_badge(["ERR"])
+                background.apply_badge(["ERR"])
                 chrome.browserAction.setIcon({path: "../img/icon-16-disabled.png"});
                 chrome.browserAction.setBadgeBackgroundColor({"color": "#FF5722"});
             } else {
@@ -35,7 +37,7 @@ function login(){
         })
         .fail(function(data){
             var err = data.status
-            apply_badge(["ERR"])
+            background.apply_badge(["ERR"])
             chrome.storage.local.set({"logged_in": false});
             chrome.browserAction.setIcon({path: "../img/icon-16-disabled.png"});
             chrome.browserAction.setBadgeBackgroundColor({"color": "#FF5722"});
@@ -133,7 +135,7 @@ function parse_torrents(torrents){
                               "torrent_html": html,
                               "badge_counts": [downloading_count, seeding_count]
     });
-    apply_badge([downloading_count, seeding_count]);
+    background.apply_badge([downloading_count, seeding_count]);
 }
 
 function render_torrent(torrent){
@@ -215,13 +217,6 @@ function api_command(path, params){
             update();
         })
     })
-}
-
-function apply_badge(c){
-    /* show badge with downloading/seeding counts
-    c (array): counts of downloading torrents [downloading, seeding]
-    */
-    chrome.browserAction.setBadgeText({"text": c.join(":")})
 }
 
 function format_eta(s){

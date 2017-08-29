@@ -10,7 +10,7 @@ Starts an interval loop to get torrent status from qbit.
 
 */
 
-var update_loop;
+var update_loop;            // Interval used to update interface and badge
 var last_response = null;   // Full last response from QBit Server
 
 chrome.storage.local.set({"logged_in": false,
@@ -73,6 +73,9 @@ chrome.storage.onChanged.addListener(function(changes, namespace){
     })
 });
 
+// Fire update immediately, skipping interval wait, and apply badge
+update();
+
 function add_torrent(event){
     /* Sends torrent to QBit server
     */
@@ -87,8 +90,13 @@ function add_torrent(event){
     });
 }
 
-// Fire update immediately, skipping interval wait, and apply badge
-update();function notify(torrents, prev){
+function apply_badge(c){
+    /* show badge with downloading/seeding counts
+    c (array): counts of downloading torrents [downloading, seeding]
+    */
+    chrome.browserAction.setBadgeText({"text": c.join(":")})
+}
+
 function notify(torrents, prev){
     /* Shows desktop notifications
     torrents (list): objects of torrents. Copy of response from server.
