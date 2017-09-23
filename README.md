@@ -4,7 +4,7 @@ QBittorrent Chrome Extension
 
 A quick and simple Chrome extension for managing QBittorrent.
 
-Currently works only with QBittorrent 3.3.11 or older.
+Works with all QBittorrent releases as of 9/22/17.
 
 
 ![Screenshot](http://i.imgur.com/Cz7KsaE.png)
